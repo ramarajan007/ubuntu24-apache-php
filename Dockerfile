@@ -7,9 +7,10 @@ RUN apt-get update && \
     apt-get install -y \
     software-properties-common \
     wget \
-    curl \
-    add-apt-repository ppa:ondrej/php -y && \
+    curl 
+RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get update -y && \
+    apt-get install -y \
     apache2 \
     php8.3 \
     php8.3-fpm \
