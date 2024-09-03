@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-ARG DEBIAN_FRONTEND=noninteractive
+#ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && \
@@ -30,11 +30,12 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     php8.3-memcached \
     php8.3-memcache \
     libapache2-mod-php8.3 && \
-    #libapache2-mod-security2 && \
-    #libapache2-mod-evasive && \
     # Clean up
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-security2 && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-evasive
 
 # Download and set up phpMyAdmin
 RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz && \
