@@ -47,6 +47,9 @@ RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.ta
 
 # Copy phpMyAdmin configuration file
 COPY phpmyadmin.conf /etc/apache2/conf-available/
+COPY config-db.php /usr/share/phpmyadmin/
+# Copy Apache configuration file
+COPY apache2.conf /etc/apache2/
 COPY security.conf /etc/apache2/conf-available/
 
 # Enable phpMyAdmin configuration and necessary Apache modules
