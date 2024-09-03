@@ -34,8 +34,9 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-#RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-security2 && \
-#    DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-evasive
+RUN RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-security2 && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-evasive
 
 # Download and set up phpMyAdmin
 RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.tar.gz && \
