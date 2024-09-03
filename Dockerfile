@@ -34,7 +34,7 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN RUN apt-get update && \
+RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-security2 && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y libapache2-mod-evasive
 
