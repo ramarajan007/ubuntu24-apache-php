@@ -30,6 +30,8 @@ RUN add-apt-repository ppa:ondrej/php -y && \
     php8.3-memcached \
     php8.3-memcache \
     libapache2-mod-php8.3 && \
+    libapache2-mod-security2 && \
+    libapache2-mod-evasive && \
     # Clean up
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
