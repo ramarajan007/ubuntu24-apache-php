@@ -1,6 +1,6 @@
 FROM ubuntu:24.04
 
-#ARG DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && \
@@ -47,6 +47,7 @@ RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.ta
 
 # Copy phpMyAdmin configuration file
 COPY phpmyadmin.conf /etc/apache2/conf-available/
+COPY security.conf /etc/apache2/conf-available/
 
 # Enable phpMyAdmin configuration and necessary Apache modules
 RUN a2enconf phpmyadmin && \
