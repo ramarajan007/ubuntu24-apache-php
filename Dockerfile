@@ -57,7 +57,8 @@ COPY security.conf /etc/apache2/conf-available/
 # Enable phpMyAdmin configuration and necessary Apache modules
 RUN a2enconf phpmyadmin && \
     a2enmod php8.3 && \
-    a2enmod rewrite
+    a2enmod rewrite && \
+    a2enmod headers
 
 # Set the command to run Apache in the foreground
 CMD ["apachectl", "-D", "FOREGROUND"]
